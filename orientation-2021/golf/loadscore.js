@@ -2,15 +2,15 @@ const leaderboard = document.getElementById("leaderboard");
 const submissionsRef = db.collection("submissions");
 const problemsRef = db.collection("problems");
 const parsRef = db.collection("pars");
-for (let id of ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]) {
-	problemsRef.where("id", "==", id).get().then(res => {
-		return new Promise((resolve, reject) => {
-			const prob = res.docs[0];
-			resolve([prob.id, prob.data().title, prob.data().url]);
-		});
-	}).then(([probId, probTitle, probUrl]) => {
+problemsRef.orderBy("id").get().then(res => {
+	res.forEach(prob => {
+		const probId = prob.id;
+		const probTitle = prob.data().title;
+		const probUrl = prob.data().url;
+
 		const promiseSubmissions = submissionsRef.where("problem", "==", problemsRef.doc(probId)).get();
 		const promisePars = parsRef.where("problem", "==", problemsRef.doc(probId)).get();
+
 		Promise.all([
 			promiseSubmissions,
 			promisePars
@@ -78,4 +78,4 @@ for (let id of ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]) {
 			leaderboard.appendChild(nodeRow);
 		});
 	});
-}
+});
