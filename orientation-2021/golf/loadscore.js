@@ -1,19 +1,3 @@
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-	apiKey: "AIzaSyApSAjkIgvaVl1uuIb4ysU8yVIQ-eASIoc",
-	authDomain: "salmon-githubio.firebaseapp.com",
-	projectId: "salmon-githubio",
-	storageBucket: "salmon-githubio.appspot.com",
-	messagingSenderId: "909200478002",
-	appId: "1:909200478002:web:c6a2c4c0ae70c1c833512b",
-	measurementId: "G-KB84M5ZL7B"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-const db = firebase.firestore();
-
 const leaderboard = document.getElementById("leaderboard");
 const submissionsRef = db.collection("submissions");
 const problemsRef = db.collection("problems");
