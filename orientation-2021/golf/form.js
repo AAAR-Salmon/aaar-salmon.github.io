@@ -10,3 +10,24 @@ window.addEventListener('load', event => {
 		});
 	});
 });
+
+const formPost = document.forms.post;
+formPost.addEventListener('submit', event => {
+	console.log("submit event called.");
+	db.collection("submissions").doc().set({
+		problem: db.collection("problems").doc(formPost.problem.value),
+		score: parseInt(formPost.score.value),
+		language: formPost.language.value,
+		contestant: formPost.contestant.value,
+		timestamp: new Date(formPost.timestamp.value),
+		url: formPost.url.value
+	}).then(res => {
+		window.alert("送信が完了しました。");
+		formPost.reset();
+	}).catch(res => {
+		window.alert("送信に失敗しました。");
+	});
+	event.preventDefault();
+}, {
+	passive: false
+});
