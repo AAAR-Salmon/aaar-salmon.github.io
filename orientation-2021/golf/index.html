@@ -36,18 +36,108 @@
 	<p>
 		バックエンドは現在準備中です。問題一覧だけ置いておくのでぜひ解いてみてください。
 	</p>
-	<ul>
-		<li><a href="https://yukicoder.me/problems/no/272">yukicoder No.272 NOT回路</a></li>
-		<li><a href="https://yukicoder.me/problems/no/5">yukicoder No.5 数字のブロック</a></li>
-		<li><a href="https://yukicoder.me/problems/no/337">yukicoder No.337 P versus NP</a></li>
-		<li><a href="https://atcoder.jp/contests/m-solutions2020/tasks/m_solutions2020_c">AtCoder M-SOLUTIONS プロコンオープン 2020 C - Marks</a></li>
-		<li><a href="https://atcoder.jp/contests/abc183/tasks/abc183_d">AtCoder ABC183 D - Water Heater</a></li>
-		<li><a href="https://atcoder.jp/contests/past202005-open/tasks/past202005_g">AtCoder 第三回 アルゴリズム実技検定 G - グリッド金移動</a></li>
-		<li><a href="https://atcoder.jp/contests/abc196/tasks/abc196_d">AtCoder ABC196 D - Hanjo</a></li>
-		<li><a href="https://atcoder.jp/contests/abc192/tasks/abc192_e">AtCoder ABC192 E - Train</a></li>
-		<li><a href="https://atcoder.jp/contests/arc116/tasks/arc116_c">AtCoder ARC116 C - Multiple Sequences</a></li>
-		<li><a href="https://atcoder.jp/contests/abc194/tasks/abc194_e">AtCoder ABC194 E - Mex Min</a></li>
-	</ul>
+	<table>
+		<thead>
+			<tr>
+				<th>問題</th>
+				<th>基準スコア</th>
+				<th>最高スコア</th>
+				<th>提出者</th>
+				<th>提出言語</th>
+			</tr>
+		</thead>
+		<tbody id="leaderboard"></tbody>
+	</table>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+	
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+				 https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+	
+	<script>
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		var firebaseConfig = {
+			apiKey: "AIzaSyApSAjkIgvaVl1uuIb4ysU8yVIQ-eASIoc",
+			authDomain: "salmon-githubio.firebaseapp.com",
+			projectId: "salmon-githubio",
+			storageBucket: "salmon-githubio.appspot.com",
+			messagingSenderId: "909200478002",
+			appId: "1:909200478002:web:c6a2c4c0ae70c1c833512b",
+			measurementId: "G-KB84M5ZL7B"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+		var db = firebase.firestore();
+
+		var leaderboard = document.getElementById("leaderboard");
+		var submissionsRef = db.collection("submissions");
+		var problemsRef = db.collection("problems");
+		for (id of ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]) {
+			problemsRef.where("id", "==", id).get().then(res => {
+				return new Promise((resolve, reject) => {
+					var prob = res.docs[0];
+					resolve([prob.id, prob.data().title, prob.data().url]);
+				});
+			}).then(([probId, probTitle, probUrl]) => {
+				submissionsRef.where("problem", "==", problemsRef.doc(probId)).get().then(res => {
+					var shortest = null;
+					if (res.docs.length > 0) {
+						shortest = res.docs[0];
+						res.forEach(doc => {
+							if (doc.data().score < shortest.data().score) {
+								shortest = doc;
+							} else if (doc.data().score == shortest.data().score && doc.data().timestamp < shortest.data().timestamp) {
+								shortest = doc;
+							}
+						});
+					}
+					
+					var nodeRow = document.createElement("tr");
+					// problem
+					var nodeProbrem = document.createElement("td");
+					var nodeProbremLink = document.createElement("a");
+					var nodeProbremTitle = document.createTextNode(probTitle);
+					nodeProbremLink.href = probUrl;
+					nodeProbremLink.appendChild(nodeProbremTitle);
+					nodeProbrem.appendChild(nodeProbremLink);
+					nodeRow.appendChild(nodeProbrem);
+					// par
+					var nodePar = document.createElement("td");
+					var nodeParScore = document.createTextNode("");
+					nodePar.appendChild(nodeParScore);
+					nodeRow.appendChild(nodePar);
+					// shortest
+					var nodeShortest = document.createElement("td");
+					var nodeShortestScore = document.createTextNode("");
+					nodeShortest.appendChild(nodeShortestScore);
+					nodeRow.appendChild(nodeShortest);
+					// contestant
+					var nodeContestant = document.createElement("td");
+					var nodeContestantName = document.createTextNode("");
+					nodeContestant.appendChild(nodeContestantName);
+					nodeRow.appendChild(nodeContestant);
+					// language
+					var nodeLanguage = document.createElement("td");
+					var nodeLanguageName = document.createTextNode("");
+					nodeLanguage.appendChild(nodeLanguageName);
+					nodeRow.appendChild(nodeLanguage);
+
+					if (shortest !== null) {
+						nodeShortestScore.textContent = shortest.data().score;
+						nodeContestantName.textContent = shortest.data().contestant;
+						nodeLanguageName.textContent = shortest.data().language;
+					}
+
+					leaderboard.appendChild(nodeRow);
+				});
+			});
+		}
+	</script>
 </body>
 
 </html>
