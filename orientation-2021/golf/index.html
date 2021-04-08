@@ -66,7 +66,7 @@
 	<script>
 		// Your web app's Firebase configuration
 		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-		var firebaseConfig = {
+		const firebaseConfig = {
 			apiKey: "AIzaSyApSAjkIgvaVl1uuIb4ysU8yVIQ-eASIoc",
 			authDomain: "salmon-githubio.firebaseapp.com",
 			projectId: "salmon-githubio",
@@ -78,27 +78,27 @@
 		// Initialize Firebase
 		firebase.initializeApp(firebaseConfig);
 		firebase.analytics();
-		var db = firebase.firestore();
+		const db = firebase.firestore();
 
-		var leaderboard = document.getElementById("leaderboard");
-		var submissionsRef = db.collection("submissions");
-		var problemsRef = db.collection("problems");
-		var parsRef = db.collection("pars");
+		const leaderboard = document.getElementById("leaderboard");
+		const submissionsRef = db.collection("submissions");
+		const problemsRef = db.collection("problems");
+		const parsRef = db.collection("pars");
 		for (id of ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]) {
 			problemsRef.where("id", "==", id).get().then(res => {
 				return new Promise((resolve, reject) => {
-					var prob = res.docs[0];
+					const prob = res.docs[0];
 					resolve([prob.id, prob.data().title, prob.data().url]);
 				});
 			}).then(([probId, probTitle, probUrl]) => {
-				var promiseSubmissions = submissionsRef.where("problem", "==", problemsRef.doc(probId)).get();
-				var promisePars = parsRef.where("problem", "==", problemsRef.doc(probId)).get();
+				const promiseSubmissions = submissionsRef.where("problem", "==", problemsRef.doc(probId)).get();
+				const promisePars = parsRef.where("problem", "==", problemsRef.doc(probId)).get();
 				Promise.all([
 					promiseSubmissions,
 					promisePars
 				]).then(([resSubmissions, resPars]) => {
-					var shortest = null;
-					var par = null;
+					let shortest = null;
+					let par = null;
 					if (resSubmissions.docs.length > 0) {
 						shortest = resSubmissions.docs[0];
 						resSubmissions.forEach(doc => {
@@ -113,38 +113,38 @@
 						par = resPars.docs[0];
 					}
 					
-					var nodeRow = document.createElement("tr");
+					const nodeRow = document.createElement("tr");
 					// problem
-					var nodeProbrem = document.createElement("td");
-					var nodeProbremLink = document.createElement("a");
-					var nodeProbremTitle = document.createTextNode(probTitle);
+					const nodeProbrem = document.createElement("td");
+					const nodeProbremLink = document.createElement("a");
+					const nodeProbremTitle = document.createTextNode(probTitle);
 					nodeProbremLink.href = probUrl;
 					nodeProbremLink.appendChild(nodeProbremTitle);
 					nodeProbrem.appendChild(nodeProbremLink);
 					nodeRow.appendChild(nodeProbrem);
 					// par
-					var nodePar = document.createElement("td");
-					var nodeParScore = document.createTextNode("");
+					const nodePar = document.createElement("td");
+					const nodeParScore = document.createTextNode("");
 					nodePar.appendChild(nodeParScore);
 					nodeRow.appendChild(nodePar);
 					// par language
-					var nodeParLanguage = document.createElement("td");
-					var nodeParLanguageName = document.createTextNode("");
+					const nodeParLanguage = document.createElement("td");
+					const nodeParLanguageName = document.createTextNode("");
 					nodeParLanguage.appendChild(nodeParLanguageName);
 					nodeRow.appendChild(nodeParLanguage);
 					// shortest
-					var nodeShortest = document.createElement("td");
-					var nodeShortestScore = document.createTextNode("");
+					const nodeShortest = document.createElement("td");
+					const nodeShortestScore = document.createTextNode("");
 					nodeShortest.appendChild(nodeShortestScore);
 					nodeRow.appendChild(nodeShortest);
 					// contestant
-					var nodeContestant = document.createElement("td");
-					var nodeContestantName = document.createTextNode("");
+					const nodeContestant = document.createElement("td");
+					const nodeContestantName = document.createTextNode("");
 					nodeContestant.appendChild(nodeContestantName);
 					nodeRow.appendChild(nodeContestant);
 					// language
-					var nodeLanguage = document.createElement("td");
-					var nodeLanguageName = document.createTextNode("");
+					const nodeLanguage = document.createElement("td");
+					const nodeLanguageName = document.createTextNode("");
 					nodeLanguage.appendChild(nodeLanguageName);
 					nodeRow.appendChild(nodeLanguage);
 
