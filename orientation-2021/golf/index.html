@@ -38,10 +38,9 @@
 		<summary>基準スコアとは</summary>
 		基準スコアはゴルフ主催者が適当に書いたときのスコアです。「様々な言語」で「冗長に書いている部分がある」ので問題の難易度を示すものとはなっていません。
 	</details>
-	<p>
-		バックエンドは現在準備中です。問題一覧だけ置いておくのでぜひ解いてみてください。
-	</p>
-	<table>
+
+	<h2>リーダーボード</h2>
+	<table class="x-full">
 		<thead>
 			<tr>
 				<th>問題</th>
@@ -55,6 +54,50 @@
 		<tbody id="leaderboard"></tbody>
 	</table>
 
+	<h2>記録提出フォーム</h2>
+	<form name="post">
+		<aside><p>
+			ここで入力された情報が不正確な場合、記録は削除される可能性があります。
+		</p></aside>
+		<table class="x-full">
+			<tbody>
+				<tr>
+					<td>
+						問題
+					</td>
+					<td>
+						<select name="problem" id="post_problem" class="x-full">
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>スコア</td>
+					<td><input type="number" name="score" id="post_score" required class="x-full"></td>
+				</tr>
+				<tr>
+					<td>言語</td>
+					<td><input type="text" name="language" id="post_language" required class="x-full"></td>
+				</tr>
+				<tr>
+					<td>提出者名</td>
+					<td><input type="text" name="contestant" id="post_contestant" required class="x-full"></td>
+				</tr>
+				<tr>
+					<td>提出時刻</td>
+					<td><input type="datetime-local" name="timestamp" id="timestamp" class="x-full"></td>
+				</tr>
+				<tr>
+					<td>提出URL</td>
+					<td><input type="url" name="url" id="post_url" required class="x-full"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><button type="submit">提出</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
 	
@@ -64,6 +107,7 @@
 	<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
 	
 	<script type="text/javascript" src="./loadscore.js"></script>
+	<script type="text/javascript" src="./form.js"></script>
 </body>
 
 </html>

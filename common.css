@@ -3,6 +3,10 @@ body {
 	margin: auto;
 }
 
+.x-full {
+	width: 100%;
+}
+
 table {
 	border: 1px solid #1e1e1e;
 	border-collapse: collapse;
