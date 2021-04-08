@@ -41,6 +41,7 @@
 			<tr>
 				<th>問題</th>
 				<th>基準スコア</th>
+				<th>言語</th>
 				<th>最高スコア</th>
 				<th>提出者</th>
 				<th>提出言語</th>
@@ -77,6 +78,7 @@
 		var leaderboard = document.getElementById("leaderboard");
 		var submissionsRef = db.collection("submissions");
 		var problemsRef = db.collection("problems");
+		var parsRef = db.collection("pars");
 		for (id of ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]) {
 			problemsRef.where("id", "==", id).get().then(res => {
 				return new Promise((resolve, reject) => {
@@ -84,17 +86,26 @@
 					resolve([prob.id, prob.data().title, prob.data().url]);
 				});
 			}).then(([probId, probTitle, probUrl]) => {
-				submissionsRef.where("problem", "==", problemsRef.doc(probId)).get().then(res => {
+				var promiseSubmissions = submissionsRef.where("problem", "==", problemsRef.doc(probId)).get();
+				var promisePars = parsRef.where("problem", "==", problemsRef.doc(probId)).get();
+				Promise.all([
+					promiseSubmissions,
+					promisePars
+				]).then(([resSubmissions, resPars]) => {
 					var shortest = null;
-					if (res.docs.length > 0) {
-						shortest = res.docs[0];
-						res.forEach(doc => {
+					var par = null;
+					if (resSubmissions.docs.length > 0) {
+						shortest = resSubmissions.docs[0];
+						resSubmissions.forEach(doc => {
 							if (doc.data().score < shortest.data().score) {
 								shortest = doc;
 							} else if (doc.data().score == shortest.data().score && doc.data().timestamp < shortest.data().timestamp) {
 								shortest = doc;
 							}
 						});
+					}
+					if (resPars.docs.length > 0) {
+						par = resPars.docs[0];
 					}
 					
 					var nodeRow = document.createElement("tr");
@@ -111,6 +122,11 @@
 					var nodeParScore = document.createTextNode("");
 					nodePar.appendChild(nodeParScore);
 					nodeRow.appendChild(nodePar);
+					// par language
+					var nodeParLanguage = document.createElement("td");
+					var nodeParLanguageName = document.createTextNode("");
+					nodeParLanguage.appendChild(nodeParLanguageName);
+					nodeRow.appendChild(nodeParLanguage);
 					// shortest
 					var nodeShortest = document.createElement("td");
 					var nodeShortestScore = document.createTextNode("");
@@ -131,6 +147,11 @@
 						nodeShortestScore.textContent = shortest.data().score;
 						nodeContestantName.textContent = shortest.data().contestant;
 						nodeLanguageName.textContent = shortest.data().language;
+					}
+
+					if (par !== null) {
+						nodeParScore.textContent = par.data().score;
+						nodeParLanguageName.textContent = par.data().language;
 					}
 
 					leaderboard.appendChild(nodeRow);
