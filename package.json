@@ -1,0 +1,17 @@
+{
+  "name": "aaar-salmon.github.io",
+  "version": "1.0.0",
+  "description": "Nuxt.js-based static site",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "author": "AAAR Salmon",
+  "license": "MIT",
+  "dependencies": {
+    "nuxt": "^2.15.8"
+  }
+}
