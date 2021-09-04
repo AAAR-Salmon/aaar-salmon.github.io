@@ -1,7 +1,7 @@
 <template>
   <div class="relative flex flex-col h-screen">
     <Header />
-    <Nuxt class="container max-w-screen-xl flex-grow my-4 mx-auto" />
+    <Nuxt class="container max-w-screen-xl flex-grow p-4 mx-auto" />
     <Footer />
   </div>
 </template>
@@ -10,6 +10,13 @@
 
 </script>
 
-<style scoped>
+<!--suppress CssInvalidAtRule -->
+<style>
+h1 {
+  @apply text-2xl w-full mt-4 border-current border-b-2;
+}
 
+h2 {
+  @apply text-2xl w-full mt-4;
+}
 </style>
