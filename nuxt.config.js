@@ -11,7 +11,8 @@ export default {
       { name: 'viewport', content: 'width=device-width,initial-scale=1' }
     ],
     link: [
-      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon.png' }
+      { rel: 'icon', type: 'image/svg+xml', sizes: 'any', href: '/favicon.svg' },
+      { rel: 'icon alternate', type: 'image/png', sizes: '32x32', href: '/favicon.png' }
     ]
   },
   components: true,
