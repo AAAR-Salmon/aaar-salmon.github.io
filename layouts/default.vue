@@ -13,10 +13,18 @@
 <!--suppress CssInvalidAtRule -->
 <style>
 h1 {
-  @apply text-2xl w-full mt-4 border-current border-b-2;
+  @apply text-2xl w-full mt-4 mb-2 border-current border-b-2;
 }
 
 h2 {
   @apply text-2xl w-full mt-4;
+}
+
+p {
+  @apply px-4;
+}
+
+a {
+  @apply underline;
 }
 </style>

@@ -16,8 +16,10 @@
 
     <section>
       <h2>ページ一覧</h2>
-      <ul>
-        <li>a</li>
+      <ul class="px-4">
+        <li>
+          <NuxtLink to="profile">プロフィール</NuxtLink>
+        </li>
       </ul>
     </section>
   </div>
