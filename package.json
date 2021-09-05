@@ -15,7 +15,8 @@
   "author": "AAAR Salmon",
   "license": "MIT",
   "dependencies": {
-    "nuxt": "^2.15.8"
+    "nuxt": "^2.15.8",
+    "sass": "^1.39.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.8",
