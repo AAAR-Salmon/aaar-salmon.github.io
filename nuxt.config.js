@@ -2,7 +2,7 @@
 export default {
   target: 'static',
   head: {
-    titleTemplate: title => title ? `${title} - AAAR-Salmon` : 'AAAR-Salmon',
+    titleTemplate: title => title ? `${title} @AAAR-Salmon` : 'AAAR-Salmon',
     htmlAttrs: {
       lang: 'ja'
     },
