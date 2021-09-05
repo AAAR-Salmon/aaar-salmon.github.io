@@ -1,7 +1,7 @@
 <template>
   <header class="md:sticky top-0 w-full p-2 bg-salmon text-white text-xl">
     <p>
-      <a href="/">AAAR-Salmon</a>
+      <NuxtLink to="/">AAAR-Salmon</NuxtLink>
     </p>
   </header>
 </template>
