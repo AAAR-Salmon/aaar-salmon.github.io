@@ -20,12 +20,12 @@
       <h2>ページ一覧</h2>
       <ul class="px-4">
         <li>
-          <NuxtLink to="profile">
+          <NuxtLink to="profile" append>
             プロフィール
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="orientation-2021">
+          <NuxtLink to="orientation-2021" append>
             2021年度 OUCRC新歓
           </NuxtLink>
         </li>
