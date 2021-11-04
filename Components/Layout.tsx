@@ -1,5 +1,6 @@
+import React from 'react'
+import {ReactNode} from 'react'
 import style from './Layout.module.sass'
-import {ReactNode} from "react";
 
 type Props = {
   children: ReactNode
