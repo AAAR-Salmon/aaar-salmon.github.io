@@ -11,8 +11,10 @@ export default function Layout({ children, ...props }: Props) {
   return (
     <div className={style.layout} {...props}>
       <Header/>
-      <div className={style.main}>
-        {children}
+      <div className={style.container}>
+        <div className={style.main}>
+          {children}
+        </div>
       </div>
       <Footer/>
     </div>
