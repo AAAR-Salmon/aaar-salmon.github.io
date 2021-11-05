@@ -1,6 +1,7 @@
-import React from 'react'
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import style from './Layout.module.sass'
+import Header from './Header'
+import Footer from './Footer'
 
 type Props = {
   children: ReactNode
@@ -9,11 +10,11 @@ type Props = {
 export default function Layout({ children, ...props }: Props) {
   return (
     <div className={style.layout} {...props}>
-      <header>ヘッダー</header>
+      <Header/>
       <div className={style.main}>
         {children}
       </div>
-      <footer>フッター</footer>
+      <Footer/>
     </div>
   )
 }
