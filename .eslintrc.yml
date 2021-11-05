@@ -29,3 +29,6 @@ rules:
     - error
     - never
   eqeqeq: warn
+  object-curly-spacing:
+    - error
+    - always
