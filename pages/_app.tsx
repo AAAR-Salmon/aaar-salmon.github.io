@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/global.sass'
+import '@/styles/global.sass'
 import Head from 'next/head'
 import { AppProps } from 'next/app'
 
