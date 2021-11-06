@@ -3,7 +3,11 @@ import style from './Layout.module.sass'
 import Header from './Header'
 import Footer from './Footer'
 
-const Layout: React.FC = ({ children, ...props }) => {
+type Props = {
+  children: React.ReactNode
+}
+
+const Layout: React.VFC<Props> = ({ children, ...props }) => {
   return (
     <div className={style.layout} {...props}>
       <Header/>

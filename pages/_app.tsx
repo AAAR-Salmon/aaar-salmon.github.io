@@ -3,7 +3,7 @@ import '../styles/global.sass'
 import Head from 'next/head'
 import { AppProps } from 'next/app'
 
-export default function App({ Component, pageProps }: AppProps) {
+const App: React.VFC<AppProps> = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
@@ -16,3 +16,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   )
 }
+
+export default App
