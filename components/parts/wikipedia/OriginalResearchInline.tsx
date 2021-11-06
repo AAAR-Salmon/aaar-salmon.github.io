@@ -1,6 +1,5 @@
 import React from 'react'
 import style from './StyleInline.module.sass'
-import classNames from 'classnames'
 
 type Props = {
   children: React.ReactNode
@@ -17,7 +16,7 @@ const OriginalResearchInline: React.VFC<Props> = ({ children, date, certain = fa
       >
         {children}
       </span>
-      <sup className={classNames(style.sup, style.nowrap)}>
+      <sup className={[style.sup, style.nowrap].join(' ')}>
         [
         <a
           href="https://ja.wikipedia.org/wiki/Template:%E7%8B%AC%E8%87%AA%E7%A0%94%E7%A9%B6%E7%AF%84%E5%9B%B2"
