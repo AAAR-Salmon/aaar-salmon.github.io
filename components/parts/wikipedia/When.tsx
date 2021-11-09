@@ -6,7 +6,7 @@ type Props = {
   postText?: string
 }
 
-const OriginalResearchInline: React.VFC<Props> = ({ date, postText }) => {
+const When: React.VFC<Props> = ({ date, postText }) => {
   return (
     <sup className={[style.sup, style.nowrap].join(' ')}>
       [
@@ -23,4 +23,4 @@ const OriginalResearchInline: React.VFC<Props> = ({ date, postText }) => {
   )
 }
 
-export default OriginalResearchInline
+export default When
