@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Layout from '@/components/Layout'
 import OriginalResearchInline from '@/components/parts/wikipedia/OriginalResearchInline'
 import When from '@/components/parts/wikipedia/When'
+import { Tweet } from 'react-twitter-widgets'
+import CitationNeeded from '@/components/parts/wikipedia/CitationNeeded'
 
 const Python: React.VFC = () => {
   return (
@@ -56,7 +58,7 @@ const Python: React.VFC = () => {
             </p>
             <p>
               …いや言うて新しいやん、Go,Rust,Kotlinあたりと同じぐらいの時期やん、と思われるかもしれません。
-              が、それは<strong>言語として</strong>の話であって<strong>処理系として</strong>の話でいうとPython3がだいぶ早いです。
+              が、それは<strong>言語として</strong>の話であって<strong>処理系として</strong>の話でいうとPython 3がだいぶ早いです。
               <a href="https://github.com/golang/go/tree/go1">Go 1</a>は2012年3月28日、
               <a href="https://github.com/rust-lang/rust/tree/1.0.0">Rust 1.0.0</a>は2015年5月16日、
               <a href="https://github.com/JetBrains/kotlin/tree/build-1.0.0">Kotlin 1.0.0</a>は2016年2月15日です。
@@ -73,6 +75,28 @@ const Python: React.VFC = () => {
             <p>
               利用者が多いという点も、情報が多いことに寄与していると思われます。
               公式リファレンスも充実しています（もっとも、競プロだから公式リファレンスと多少のモジュールだけ見てれば十分という話ですが）。
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <h2>競プロにおいてPythonが微妙な点</h2>
+
+          <section>
+            <h3>遅い</h3>
+            <p>
+              最大の欠点と言っても過言ではない。そう、このCPythonというインタプリタは普通に使うと遅いです。
+              それはもうとにかく遅い。
+            </p>
+            <Tweet tweetId="1325799278984404992"/>
+            <p>
+              上記tweetの一番右が多分CPython 3だと思いますが、AC者滅茶苦茶少ないですよね。なぜかと言えば普通に書くと遅いから。
+            </p>
+            <p>
+              Python 3自体の使用者はかなり多いのですが（C++に次いで2番目<CitationNeeded date="2021年11月"/>）、
+              ユーザーの大半は<a href="https://www.pypy.org/index.html">PyPy</a>というCPythonとは別のインタプリタを使っています。
+              CPythonで動くコードをほとんどそのまんま動かせて、しかも早いのが素晴らしいところです。
+              AtCoderで未だにPyPy 7.3.0（Python 3.6）が使われているのが玉に瑕ですが、次の言語アップデートを気長に待ちましょう。
             </p>
           </section>
         </section>
