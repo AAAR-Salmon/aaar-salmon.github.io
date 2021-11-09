@@ -57,7 +57,10 @@ const Python: React.VFC = () => {
             <p>
               …いや言うて新しいやん、Go,Rust,Kotlinあたりと同じぐらいの時期やん、と思われるかもしれません。
               が、それは<strong>言語として</strong>の話であって<strong>処理系として</strong>の話でいうとPython3がだいぶ早いです。
-              Go 1は2012年3月28日、Rust 1.0.0は2015年5月16日、Kotlin 1.0.0は2016年2月15日です。対してCPython v3.0は2008年12月4日です。
+              <a href="https://github.com/golang/go/tree/go1">Go 1</a>は2012年3月28日、
+              <a href="https://github.com/rust-lang/rust/tree/1.0.0">Rust 1.0.0</a>は2015年5月16日、
+              <a href="https://github.com/JetBrains/kotlin/tree/build-1.0.0">Kotlin 1.0.0</a>は2016年2月15日です。
+              対して<a href="https://github.com/python/cpython/tree/v3.0">CPython v3.0</a>は2008年12月4日です。
               まあ大幅な仕様変更が有ったとは言え、随分前からv2.xの処理系は有ったわけですから当然っちゃ当然ですね。
             </p>
             <aside>
