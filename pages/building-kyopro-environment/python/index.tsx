@@ -15,6 +15,11 @@ const Python: React.VFC = () => {
           <p><b>Pythonをやりましょう。</b></p>
           <p>
             プログラミング初心者が一番最初に触るのに適している言語はPython…そんなわけ無いですね。JavaScriptだと思います(個人の感想です)。
+          </p>
+          <aside>
+            <p>JavaScriptについては別の回でやります。</p>
+          </aside>
+          <p>
             まあPython人気ですし。やりましょう。
           </p>
           <figure className="figureWithCaption">
@@ -98,6 +103,29 @@ const Python: React.VFC = () => {
               CPythonで動くコードをほとんどそのまんま動かせて、しかも早いのが素晴らしいところです。
               AtCoderで未だにPyPy 7.3.0（Python 3.6）が使われているのが玉に瑕ですが、次の言語アップデートを気長に待ちましょう。
             </p>
+          </section>
+
+          <section>
+            <h3>Off-side Rule</h3>
+            <p>
+              <i>サッカーの話ではなくて。</i>
+              ここでは、左端から離れる（off-side）規則のことです。インデントでブロックを表します。
+              対になる概念はCurly-bracket programming（中括弧でブロックを表す）。
+            </p>
+            <p>
+              Pythonという言語の設計思想は調べてもイマイチわかりませんが、
+              一つ言えそうなことは「プログラムが動くためには、美しく有るべき（SHOULD）。」ということです。
+              <i>動いてはならない（MUST NOT）、まで強くはないです。</i>
+            </p>
+            <aside>
+              <p>
+                ついでに、現在のPythonの言語仕様は
+                PEP（Python Enhancement Proposal; Pythonをよりよくする提案）という提案を多数取り込むことで出来上がっています。
+                マージされたPEPの中でも最も有名なのは<a href="https://github.com/python/peps/blob/master/pep-0008.txt">PEP8</a>でしょう。
+                Pythonの生みの親であるGuido van Rossumを含む3人によって提案された、コードスタイルについての規則です。
+                その中には、インデントの推奨サイズ（半角スペース4個、2個でも8個でも、タブスペースでもない）や1行の推奨最大文字数まで指定があります。
+              </p>
+            </aside>
           </section>
         </section>
       </article>
