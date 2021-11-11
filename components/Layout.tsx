@@ -15,7 +15,7 @@ const Layout: React.VFC<Props> = ({ children, title, ...props }) => {
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin=""/>
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Red+Hat+Mono&display=swap" rel="stylesheet"/>
         <title>{title ?? '記事ビューア'}</title>
       </Head>
       <div className={style.layout} {...props}>
