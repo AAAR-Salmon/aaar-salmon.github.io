@@ -135,6 +135,24 @@ const Python: React.VFC = () => {
             </p>
           </section>
         </section>
+
+        <section>
+          <h2>本編</h2>
+          <p>
+            お待たせしました。環境構築について話していきます。
+          </p>
+          <p>
+            例によって、<a href="https://oucrc.net/articles/e6vkrz4uqtt">#1 共通編</a>を前提としますが、
+            使っているHeadless CMSサービスの都合上、
+            <code>&lt;details&gt;</code><code>&lt;summary&gt;</code>要素とかidによるページ内リンクが使えずごちゃごちゃしているので、
+            そのうちDockerfileでも作ることにします。乞うご期待。
+          </p>
+          <aside>
+            <p>
+              正規表現でうまいこと置換すれば任意のHTML要素を置けるとかそういうことを言わない。
+            </p>
+          </aside>
+        </section>
       </article>
     </Layout>
   )
