@@ -145,13 +145,59 @@ const Python: React.VFC = () => {
             例によって、<a href="https://oucrc.net/articles/e6vkrz4uqtt">#1 共通編</a>を前提としますが、
             使っているHeadless CMSサービスの都合上、
             <code>&lt;details&gt;</code><code>&lt;summary&gt;</code>要素とかidによるページ内リンクが使えずごちゃごちゃしているので、
-            そのうちDockerfileでも作ることにします。乞うご期待。
+            そのうち大幅改版してDockerfileでも作ることにします。乞うご期待。
           </p>
           <aside>
             <p>
               正規表現でうまいこと置換すれば任意のHTML要素を置けるとかそういうことを言わない。
             </p>
           </aside>
+          <p>
+            さて、Pythonの環境についてですが、一応CPythonとPyPy両方の説明をします。
+            速度的にはPyPyのほうが手抜きして高速化できるのですが、AtCoderのPyPyではNumPy等の便利なライブラリが使用できません。
+            CPythonで使えるライブラリは
+            <a href="https://qiita.com/afoil/items/83507eb4d07abf117bb2">ここのQiita記事</a>
+            に書いてありましたが、実際使えそうなのはNumPy、Numba、NetworkXぐらいでしょうか。SciPyも使える時があるのかな。
+            私は標準ライブラリしか使わないので基本PyPyです。
+          </p>
+
+          <section>
+            <h3>PyPy</h3>
+            <p>
+              UbuntuでPyPy3をインストールする方法は複数あります。
+            </p>
+            <ol>
+              <li>aptを利用してUbuntu公式リポジトリのpypy3/focal 7.3.1+dfsg-4をインストールする</li>
+              <li>公式で配布されているPyPy3 7.3.0のビルドをダウンロードする</li>
+              <li><a>pypy.org</a>からPyPy3 7.3.0のソースをダウンロードしてビルドする</li>
+            </ol>
+            <p>
+              手っ取り早い1と2の方法を紹介します（PyPyは公式でも自分でビルドすることは推奨されていないので）。
+            </p>
+
+            <section>
+              <h4>方法1 apt install</h4>
+              <p>
+                説明するまでもないような気がしますが。
+              </p>
+              <pre><code>
+                {require('./install-pypy-apt.sh.txt')}
+              </code></pre>
+              <p>
+                はい。
+              </p>
+            </section>
+
+            <section>
+              <h4>方法2 ビルド済みのPyPyをダウンロード</h4>
+              <p>
+                これもtarをダウンロードしてきて展開して適切な場所に配置するだけです。簡単ですね。
+              </p>
+              <pre><code className="language-sh">
+                {require('./install-pypy-tar.sh.txt')}
+              </code></pre>
+            </section>
+          </section>
         </section>
       </article>
     </Layout>
