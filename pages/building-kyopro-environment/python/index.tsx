@@ -238,6 +238,18 @@ const Python: React.VFC = () => {
                 はい。
               </p>
             </section>
+
+            <section>
+              <h4>方法2 ソースからビルドする</h4>
+              <p>
+                時間がかかるのであんまりしたくありませんが、一応。
+              </p>
+              <pre>
+                <code className="language-sh">
+                  {require('./install-cpython-source.sh.txt')}
+                </code>
+              </pre>
+            </section>
           </section>
         </section>
       </article>

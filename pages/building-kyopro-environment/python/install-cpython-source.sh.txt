@@ -1,0 +1,10 @@
+$ cd /tmp
+$ sudo apt install wget xz-utils gcc make zlib1g-dev libssl-dev libbz2-dev libffi-dev
+$ wget https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tar.xz
+$ tar vxJf Python-3.8.2.tar.xz
+$ ./configure --prefix="$HOME/.local"
+$ make
+$ make test
+$ sudo make install
+$ echo "PATH=$HOME/.local/bin:\$PATH" > ~/.bashrc && source ~/.bashrc
+$ python3 -V
