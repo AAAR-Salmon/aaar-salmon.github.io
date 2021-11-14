@@ -212,6 +212,32 @@ const Python: React.VFC = () => {
               </pre>
             </section>
           </section>
+
+          <section>
+            <h3>CPython</h3>
+            <p>
+              AtCoderで2021年11月現在採用されているCPythonのバージョンは3.8.2です。
+            </p>
+            <ol>
+              <li>aptを利用してUbuntu公式リポジトリのpython3/focal,now 3.8.2-0ubuntu2をインストールする</li>
+              <li><a href="https://python.org">python.org</a>からPython 3.8.2のソースをダウンロードしてビルドする</li>
+            </ol>
+            <p>
+              とまあPyPyと概ね同じですが、Linux向けビルド済みパッケージを公式が配布していないので、
+              Ubuntuからの供給が絶たれれば自分でビルドする他なくなります。
+            </p>
+
+            <section>
+              <h4>方法1 apt install</h4>
+              <pre>
+                <code className="language-sh">
+                  {require('./install-cpython-apt.sh.txt')}
+                </code>
+              </pre>
+              <p>
+                はい。
+              </p>
+            </section>
         </section>
       </article>
     </Layout>
