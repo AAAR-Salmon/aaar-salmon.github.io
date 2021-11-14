@@ -179,7 +179,7 @@ const Python: React.VFC = () => {
             <ol>
               <li>aptを利用してUbuntu公式リポジトリのpypy3/focal 7.3.1+dfsg-4をインストールする</li>
               <li>公式で配布されているPyPy3 7.3.0のビルドをダウンロードする</li>
-              <li><a>pypy.org</a>からPyPy3 7.3.0のソースをダウンロードしてビルドする</li>
+              <li><a href="https://pypy.org">pypy.org</a>からPyPy3 7.3.0のソースをダウンロードしてビルドする</li>
             </ol>
             <p>
               手っ取り早い1と2の方法を紹介します（PyPyは公式でも自分でビルドすることは推奨されていないので）。
