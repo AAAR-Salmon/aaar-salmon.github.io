@@ -180,9 +180,11 @@ const Python: React.VFC = () => {
               <p>
                 説明するまでもないような気がしますが。
               </p>
-              <pre><code>
-                {require('./install-pypy-apt.sh.txt')}
-              </code></pre>
+              <pre>
+                <code className="language-sh">
+                  {require('./install-pypy-apt.sh.txt')}
+                </code>
+              </pre>
               <p>
                 はい。
               </p>
@@ -193,9 +195,11 @@ const Python: React.VFC = () => {
               <p>
                 これもtarをダウンロードしてきて展開して適切な場所に配置するだけです。簡単ですね。
               </p>
-              <pre><code className="language-sh">
-                {require('./install-pypy-tar.sh.txt')}
-              </code></pre>
+              <pre>
+                <code className="language-sh">
+                  {require('./install-pypy-tar.sh.txt')}
+                </code>
+              </pre>
             </section>
           </section>
         </section>

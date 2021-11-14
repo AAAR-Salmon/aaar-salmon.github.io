@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const Home: React.VFC = () => {
   const links = [
-    'building-kyopro-environment/python'
+    '/building-kyopro-environment/python'
   ]
   return (
     <Layout>

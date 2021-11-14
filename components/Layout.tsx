@@ -17,6 +17,8 @@ const Layout: React.VFC<Props> = ({ children, title, ...props }) => {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin=""/>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Red+Hat+Mono&display=swap" rel="stylesheet"/>
         <title>{title ?? '記事ビューア'}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/darcula.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"/>
       </Head>
       <div className={style.layout} {...props}>
         <Header/>
@@ -26,6 +28,7 @@ const Layout: React.VFC<Props> = ({ children, title, ...props }) => {
           </div>
         </div>
         <Footer/>
+        <script>hljs.highlightAll()</script>
       </div>
     </>
   )
