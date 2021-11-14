@@ -264,6 +264,24 @@ const Python: React.VFC = () => {
               <p>
                 何も考えることはないですね。
               </p>
+              <aside>
+                <p>
+                  こちらとしてはインストールに難儀しました。
+                </p>
+                <p>
+                  <code>./configure</code>時に<code>--prefix</code>オプションを指定しないと、
+                  <code>make install</code>時に<code>/usr/local/bin</code>に書き込もうとするので権限がなく、
+                  <code>sudo make install</code>すると<code>pip install</code>がrootでしか使えませんでした。
+                </p>
+                <p>
+                  また、<code>libssl-dev</code>を入れないとそもそも<code>pip install</code>できないし、
+                  <code>libbz2-dev</code>がないとNetworkXが、
+                  <code>libffi-dev</code>がないとがNumbaとSciPyが使えませんでした。
+                </p>
+              </aside>
+              <p>
+                これでお好きなようにPythonのコードを書くことができます。
+              </p>
             </section>
           </section>
         </section>
