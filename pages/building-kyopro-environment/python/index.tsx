@@ -238,6 +238,7 @@ const Python: React.VFC = () => {
                 はい。
               </p>
             </section>
+          </section>
         </section>
       </article>
     </Layout>
