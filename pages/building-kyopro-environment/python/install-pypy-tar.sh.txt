@@ -4,4 +4,4 @@ $ wget https://downloads.python.org/pypy/pypy3.6-v7.3.0-linux64.tar.bz2
 $ sudo tar vxjf pypy3.6-v7.3.0-linux64.tar.bz2 -C /usr/local/lib
 $ cd /usr/local/bin
 $ sudo ln -s ../lib/pypy3.6-v7.3.0-linux64/bin/pypy3 pypy3
-$ pypy -V
+$ pypy3 -V
