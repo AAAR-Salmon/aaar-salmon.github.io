@@ -250,6 +250,21 @@ const Python: React.VFC = () => {
                 </code>
               </pre>
             </section>
+
+            <section>
+              <h4>ライブラリのインストール</h4>
+              <p>
+                CPythonはいくつかライブラリが入っているという話をしたので、一応入れておきましょう。
+              </p>
+              <pre>
+                <code className="language-sh">
+                  $ pip3 install networkx numba numpy scipy
+                </code>
+              </pre>
+              <p>
+                何も考えることはないですね。
+              </p>
+            </section>
           </section>
         </section>
       </article>
