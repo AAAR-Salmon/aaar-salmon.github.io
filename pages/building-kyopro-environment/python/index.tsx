@@ -284,6 +284,19 @@ const Python: React.VFC = () => {
               </p>
             </section>
           </section>
+
+          <section>
+            <h3>VSCodeの拡張機能</h3>
+            <ul>
+              <li>Python</li>
+              <li>Pylance</li>
+              <li>python-snippets</li>
+              <li>Visual Studio IntelliCode</li>
+            </ul>
+            <p>
+              あたりを入れとけばいいんじゃないですかね。知らんけど。
+            </p>
+          </section>
         </section>
       </article>
     </Layout>
