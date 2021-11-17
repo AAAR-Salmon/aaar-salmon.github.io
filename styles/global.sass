@@ -1,3 +1,9 @@
+$breakpointSm: 640px
+
+@mixin sm($breakpoint: $breakpointSm)
+  @media screen and (min-width: $breakpoint)
+    @content
+
 body
   margin: 0
 
@@ -20,3 +26,8 @@ aside
 
 .phantom
   color: rgba(255, 255, 255, 0)
+
+.spNone
+  display: none
+  @include sm
+    display: inherit
